@@ -11,8 +11,8 @@ const getAllBlogs = async (req, res) => {
 
 const getOneBlog = async (req, res) => {
   try {
-    const { id: _id } = req.params;
-    const user = await Blog.findOne({ _id });
+    const { id } = req.params;
+    const user = await Blog.findById(id);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ msg: error });
