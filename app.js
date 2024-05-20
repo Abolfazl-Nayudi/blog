@@ -2,9 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const db = require('./db/connectDB');
+const cors = require('cors');
 const blogRouter = require('./routes/blog.routes');
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
